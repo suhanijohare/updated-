@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver/Paramedic Registration</title>
+</head>
+<body>
+    <h2>Ambulance Driver/Paramedic Registration</h2>
+    <form action="/register" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label for="hospital">Hospital:</label><br>
+        <input type="text" id="hospital" name="hospital" required><br><br>
+
+        <label for="hospital_code">Hospital Unique Code:</label><br>
+        <input type="text" id="hospital_code" name="hospital_code" required><br><br>
+
+        <label for="userid">User ID:</label><br>
+        <input type="text" id="userid" name="userid" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
