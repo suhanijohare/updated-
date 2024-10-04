@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0e0e0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border: 1px solid #dfe3e8;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            text-align: center;
+            font-size: 26px;
+            color: #333333;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #555555;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .form-group input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Ambulance Driver/Paramedic Registration</h2>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" required>
+    </div>
+    <div class="form-group">
+        <label for="hospital">Hospital:</label>
+        <input type="text" id="hospital" required>
+    </div>
+    <div class="form-group">
+        <label for="hospital-code">Hospital Unique Code:</label>
+        <input type="text" id="hospital-code" required>
+    </div>
+    <div class="form-group">
+        <label for="user-id">User ID:</label>
+        <input type="text" id="user-id" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+    </div>
+    <button class="button" onclick="registerUser()">Register</button>
+</div>
+
+<script>
+    function registerUser() {
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const hospital = document.getElementById('hospital').value;
+        const hospitalCode = document.getElementById('hospital-code').value;
+        const userId = document.getElementById('user-id').value;
+        const password = document.getElementById('password').value;
+
+        const user = {
+            name,
+            age,
+            gender,
+            hospital,
+            hospitalCode,
+            userId,
+            password
+        };
+
+        const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+        existingUsers.push(user);
+
+        localStorage.setItem('users', JSON.stringify(existingUsers));
+
+        alert("Registration successful!");
+    }
+</script>
+
+</body>
+</html>
